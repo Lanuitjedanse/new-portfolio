@@ -25,7 +25,7 @@ export default function Projects() {
       setGitHub(projectsList[id].gitHub);
       setStack(projectsList[id].stack);
     }
-    e.stopPropagation();
+    // e.stopPropagation();
     setProjectOpen(!projectOpen);
   };
 
@@ -43,7 +43,7 @@ export default function Projects() {
       link: "",
       class: "color1",
       img: "/dragrace.png",
-      gitHub: "https://github.com/Lanuitjedanse/connect-four-drag-race",
+      gitHub: "https://github.com/Lanuitjedanse/subscription-form",
       stack: ["React", "Tailwind", "Lodash"],
     },
     {
