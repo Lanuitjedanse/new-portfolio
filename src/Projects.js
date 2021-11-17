@@ -14,7 +14,7 @@ export default function Projects() {
   const [stack, setStack] = useState([]);
   const [projectOpen, setProjectOpen] = useState(false);
   const [visibilityIcon, setVisibilityIcon] = useState(false);
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(null);
 
   const toggleProject = (e, id) => {
     if (!projectOpen) {
@@ -42,7 +42,7 @@ export default function Projects() {
       description: "Subscription for Cloud Provider",
       link: "",
       class: "color1",
-      img: "/dragrace.png",
+      cover: "/cover-subscription.jpeg",
       gitHub: "https://github.com/Lanuitjedanse/subscription-form",
       stack: ["React", "Tailwind", "Lodash"],
     },
@@ -52,7 +52,7 @@ export default function Projects() {
       description: "Helped to change CSS for this Shopify Shop",
       link: "https://spinspinshop.com/",
       class: "color2",
-      img: "/spinspin.png",
+      cover: "/cover-spin.jpeg",
       gitHub: "",
       stack: ["Shopify", "HTML5", "CSS3", "FontAwesome"],
     },
@@ -63,7 +63,7 @@ export default function Projects() {
         "My first profesionnal project working as a Frontend Developer. thing Online aims to revolutionise virtual workshops. This project uses stack such as Node.js, Nuxt.js, Vue.js, Vuex, socket.io, JavaScript, TypeScript, Python, MongoDB, LiveSwitch, PixiJS, and more",
       link: "https://app.thing.online/login",
       class: "color3",
-      img: "/thing-online.png",
+      cover: "/cover-thing-online.jpeg",
       gitHub: "",
       stack: [
         "Vue.js",
@@ -85,7 +85,7 @@ export default function Projects() {
         "My final fullstack project during the bootcamp at Spiced Academy. Lanuitjedanse allows you to find a bar or a club depending on your music taste. This project was done using Node.js, React, PostgresSQL and Google Maps API.",
       link: "https://lanuitjedanse.herokuapp.com/",
       class: "color4",
-      img: "/lanuitjedanse.png",
+      cover: "/cover-lanuitjedanse.jpeg",
       gitHub: "https://github.com/Lanuitjedanse/Lanuitjedanse",
       stack: [
         "React",
@@ -106,7 +106,7 @@ export default function Projects() {
         "My third fullstack project at Spiced Academy using Node.js, React and Postgres. It is a social media platform for music lovers.",
       link: "https://social-tracklist.herokuapp.com/",
       class: "color5",
-      img: "/tracklist.png",
+      cover: "/cover-tracklist.jpeg",
       gitHub: "https://github.com/Lanuitjedanse/tracklist",
       stack: [
         "React",
@@ -127,7 +127,7 @@ export default function Projects() {
         "My second fullstack project, this project was done using Node.js, Vue.js and Postgres. It is a social media platform similar to instagram for plant lovers",
       link: "https://lucie-greenstagram.herokuapp.com/",
       class: "color6",
-      img: "/greenstagram.png",
+      cover: "/cover-greenstagram.jpeg",
       gitHub: "https://github.com/Lanuitjedanse/greenstagram",
       stack: [
         "Vue.js",
@@ -141,12 +141,12 @@ export default function Projects() {
     },
     {
       id: 6,
-      name: "Petition for Cheese Rights",
+      name: "Petition Website",
       description:
         "My first fullstack project at Spiced Academy. This project was done using Node.js, Handlebars and Postgres. This is a petition website for cheese rights :) ",
       link: "https://stormy-chamber-44911.herokuapp.com/register",
       class: "color7",
-      img: "/petition.png",
+      cover: "/cover-petition.jpeg",
       gitHub: "https://github.com/Lanuitjedanse/petition-for-cheese-rights",
       stack: [
         "HandleBars",
@@ -165,7 +165,7 @@ export default function Projects() {
         "Soundify is a platform to search for music on Spotify. JQuery and Spotify' API.",
       link: "",
       class: "color8",
-      img: "/soundify.png",
+      cover: "/cover-soundify.jpeg",
       gitHub: "https://github.com/Lanuitjedanse/soundify",
       stack: ["JQuery", "HTML5", "CSS3"],
     },
@@ -175,7 +175,7 @@ export default function Projects() {
       description: "Connect four project done with JQuery.",
       link: "",
       class: "color9",
-      img: "/dragrace.png",
+      cover: "/cover-drag-race.png",
       gitHub: "https://github.com/Lanuitjedanse/connect-four-drag-race",
       stack: ["JQuery", "HTML5", "CSS3"],
     },
@@ -189,15 +189,24 @@ export default function Projects() {
               className={`${project.class} box-project`}
               key={project.id}
               onMouseEnter={() => toggleIcon(project.id)}
-              onMouseLeave={() => toggleIcon(project.id)}
             >
-              <h2 className="title-proj">{project.name}</h2>
-              {visibilityIcon && project.id === id && (
-                <FontAwesomeIcon
-                  icon={faArrowAltCircleRight}
-                  className="icon-next fa-lg"
-                  onClick={(e) => toggleProject(e, id)}
-                />
+              <img
+                className="cover-project"
+                src={project.cover}
+                alt={project.name}
+              />
+
+              {project.id === id && (
+                <>
+                  <h2 className="title-proj tracking-in-expand">
+                    {project.name}
+                  </h2>
+                  <FontAwesomeIcon
+                    icon={faArrowAltCircleRight}
+                    className="icon-next fa-lg fade-in"
+                    onClick={(e) => toggleProject(e, id)}
+                  />
+                </>
               )}
             </div>
           ))}
