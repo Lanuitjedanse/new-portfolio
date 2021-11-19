@@ -11,7 +11,7 @@ import Caroussel from "./Caroussel";
 
 export default function Project({ project, toggleVisibility, visible }) {
   return (
-    <div className="overlay" toggleVisibility={toggleVisibility}>
+    <div className="overlay" onClick={toggleVisibility}>
       <div className="project-box" onClick={(e) => e.stopPropagation()}>
         <div className="box-left">
           <Arrow direction={"left"} id={project.id} />
